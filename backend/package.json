@@ -1,0 +1,21 @@
+{
+  "name": "evaluacion-backend-sesion-3",
+  "version": "1.0.0",
+  "description": "Evaluación Sesión 3: Debugging + Edge Cases",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Estudiante",
+  "license": "ISC",
+  "dependencies": {
+    "connect-multiparty": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
+    "multer": "^1.4.5-lts.1",
+    "multiparty": "^4.2.3"
+  }
+}

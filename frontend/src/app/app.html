@@ -1,0 +1,98 @@
+<main class="container">
+  <h1>CRUD de Articulos</h1>
+
+  <p class="feedback error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  <p class="feedback success" *ngIf="successMessage">{{ successMessage }}</p>
+
+  <section class="card">
+    <h2>Crear articulo</h2>
+
+    <form (ngSubmit)="onSubmit()" #articleForm="ngForm" class="form-grid">
+      <label>
+        Titulo
+        <input
+          name="titulo"
+          [(ngModel)]="form.titulo"
+          required
+          placeholder="Titulo"
+        />
+      </label>
+
+      <label>
+        Descripcion
+        <textarea
+          name="descripcion"
+          [(ngModel)]="form.descripcion"
+          required
+          rows="3"
+          placeholder="Descripcion"
+        ></textarea>
+      </label>
+
+      <label>
+        Precio
+        <input
+          type="number"
+          name="precio"
+          [(ngModel)]="form.precio"
+          required
+          min="0"
+          step="0.01"
+          placeholder="Precio"
+        />
+      </label>
+
+      <label>
+        Categoria
+        <input
+          name="categoria"
+          [(ngModel)]="form.categoria"
+          required
+          placeholder="Categoria"
+        />
+      </label>
+
+      <label>
+        Imagen (opcional)
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+      </label>
+
+      <div class="buttons">
+        <button type="submit" [disabled]="articleForm.invalid">Guardar</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Listado</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Titulo</th>
+          <th>Descripcion</th>
+          <th>Precio</th>
+          <th>Categoria</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let article of articles">
+          <td>{{ article.titulo }}</td>
+          <td>{{ article.descripcion }}</td>
+          <td>{{ article.precio | currency : 'USD' }}</td>
+          <td>{{ article.categoria }}</td>
+          <td>
+            <img
+              *ngIf="article.imagen"
+              [src]="getImageUrl(article.imagen)"
+              [alt]="article.titulo"
+              width="60"
+            />
+            <span *ngIf="!article.imagen">Sin imagen</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
