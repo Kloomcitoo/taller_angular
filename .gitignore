@@ -8,7 +8,7 @@ node_modules/
 .env.*
 !.env.example
 
-# Backend — la carpeta upload/articles se versiona; el contenido (imágenes, etc.) no
+# Backend — mantener la carpeta upload/articles en el repo; ignorar solo el contenido (imágenes)
 backend/upload/articles/*
 !backend/upload/articles/.gitkeep
 
