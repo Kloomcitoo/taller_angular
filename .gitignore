@@ -8,8 +8,9 @@ node_modules/
 .env.*
 !.env.example
 
-# Backend — imágenes subidas por Multer (no versionar binarios de usuario)
+# Backend — la carpeta upload/articles se versiona; el contenido (imágenes, etc.) no
 backend/upload/articles/*
+!backend/upload/articles/.gitkeep
 
 # Logs
 logs
